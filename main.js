@@ -62,9 +62,9 @@ function createGrid(x) {
 
 function generateColor() {
     const color = ['#ff2f8e', '#ff9e4c', '#ffd600', '#66df48', '#6a77dd', '#9803ce', '#000000'];
-    const gridItem = document.querySelector('.grid-item');
+    const gridItem = document.querySelectorAll('.grid-item');
     gridItem.forEach((item) => {
-        const randomColors = colors[Math.floor(Math.random()*color.length)];
+        const randomColors = color[Math.floor(Math.random()*color.length)];
         item.addEventListener('mouseover', (e) => {
             e.target.style.backgroundColor = randomColors;
         });
