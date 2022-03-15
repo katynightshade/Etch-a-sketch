@@ -22,3 +22,14 @@ makeRows(16, 16);*/
 }
 createGrid(16);*/
 
+const container = document.getElementById('container');
+
+function createGrid(rows, cols) {
+    for(let i = 0; i < (rows * cols); i++) {
+        const cell = document.createElement('div');
+        cell.className('grid-item');
+        container.appendChild(cell);
+    }
+}
+
+createGrid(16, 16);
