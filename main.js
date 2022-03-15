@@ -22,7 +22,7 @@ makeRows(16, 16);*/
 }
 createGrid(16);*/
 
-const container = document.getElementById('container');
+/*const container = document.getElementById('container');
 
 function createGrid(rows, cols) {
     for(let i = 0; i < (rows * cols); i++) {
@@ -32,4 +32,17 @@ function createGrid(rows, cols) {
     }
 }
 
-createGrid(16, 16);
+createGrid(16, 16);*/
+
+const container = document.getElementById('container');
+
+function createGrid(x) {
+    for (let rows = 0; rows < x; rows++) {
+        for (let columns = 0; columns < x; columns++) {
+            const cell = document.createElement('div');
+            cell.className = 'grid-item';
+            container.appendChild(cell);
+        };
+    };
+}
+createGrid(16);

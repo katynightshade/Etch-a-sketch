@@ -1,4 +1,9 @@
 #container {
-    display: grid;
-    grid-template-columns: auto auto;
+    display: flexbox;
+}
+
+.grid-item {
+    margin: 3px;
+    width: 20vw;
+    height: 20vh;
 }
