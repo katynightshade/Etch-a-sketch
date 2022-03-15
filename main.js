@@ -40,7 +40,7 @@ function makeArt() {
     createGrid(16);
     //hoverState();
     generateColor();
-    newGrid();
+    resetGrid();
 }
 
 function createGrid(x) {
@@ -73,12 +73,12 @@ function generateColor() {
     });
 }
 
-/*function resetGrid() {
+function resetGrid() {
     const resetBtn = document.getElementById('reset');
     resetBtn.addEventListener('click', () => {
         window.location.reload();
     });    
-}*/
+}
 
 function newGrid() {
     const changeBtn = document.getElementById('change');
@@ -94,5 +94,5 @@ function newGrid() {
     });
 }
 
-//makeArt();
-newGrid();
+makeArt();
+//newGrid();
