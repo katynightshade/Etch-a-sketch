@@ -1,4 +1,4 @@
-const container = document.getElementById('container');
+/*const container = document.getElementById('container');
 
 function makeRows(rows, columns) {
     container.style.setProperty('--grid-rows', rows);
@@ -9,4 +9,16 @@ function makeRows(rows, columns) {
     };
 };
 
-makeRows(16, 16);
+makeRows(16, 16);*/
+
+/*function createGrid(x) {
+    for (let rows = 0; rows < x; rows++) {
+        for (let columns = 0; columns < x; columns++) {
+            $('#container').append("<div class='grid'></div>")
+        };
+    };
+    $('.grid').width(960/x);
+    $('.grid').height(960/x);
+}
+createGrid(16);*/
+
