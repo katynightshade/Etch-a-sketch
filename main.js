@@ -40,6 +40,7 @@ function makeArt() {
     createGrid(16);
     //hoverState();
     generateColor();
+    newGrid();
 }
 
 function createGrid(x) {
@@ -47,6 +48,7 @@ function createGrid(x) {
         for (let columns = 0; columns < x; columns++) {
             const cell = document.createElement('div');
             cell.className = 'grid-item';
+            cell.style.border = '1px solid black';
             container.appendChild(cell);
         };
     };
@@ -71,4 +73,26 @@ function generateColor() {
     });
 }
 
-makeArt();
+/*function resetGrid() {
+    const resetBtn = document.getElementById('reset');
+    resetBtn.addEventListener('click', () => {
+        window.location.reload();
+    });    
+}*/
+
+function newGrid() {
+    const changeBtn = document.getElementById('change');
+    changeBtn.addEventListener('click', () =>{
+        let gridSize = prompt('What dimension would you like for your grid?');
+        if (gridSize == null) {
+            gridSize = prompt('Please enter a valid number.');
+        } else if (gridSize > 63) {
+            gridSize = prompt('Please enter a number less than 64.');
+        } else {
+            createGrid(gridSize);
+        }
+    });
+}
+
+//makeArt();
+newGrid();
