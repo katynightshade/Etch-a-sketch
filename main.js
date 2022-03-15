@@ -36,6 +36,11 @@ createGrid(16, 16);*/
 
 const container = document.getElementById('container');
 
+function makeArt() {
+    createGrid(16);
+    //hoverState();
+}
+
 function createGrid(x) {
     for (let rows = 0; rows < x; rows++) {
         for (let columns = 0; columns < x; columns++) {
@@ -45,4 +50,13 @@ function createGrid(x) {
         };
     };
 }
-createGrid(16);
+
+/*function hoverState() {
+    const color = ['#ff2f8e', '#ff9e4c', '#ffd600', '#66df48', '#6a77dd', '#9803ce'];
+    const gridItem = document.querySelector('.grid-item');
+    gridItem.addEventListener('mouseover', () => {
+        gridItem.style.background = Math.floor(Math.random() * color.length);
+    });
+}*/
+
+makeArt();
