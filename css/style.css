@@ -1,9 +1,12 @@
 #container {
-    display: flexbox;
+    display: grid; 
+    grid-template: repeat(16, minmax(0, 1fr)) / repeat(16, minmax(0, 1fr));
+    gap: 0vw;
+    box-sizing: border-box;
 }
 
 .grid-item {
-    margin: 3px;
-    width: 20vw;
-    height: 20vh;
+    min-width: 5vw;
+    min-height: 5vh;
+    border: 3px solid black;
 }
