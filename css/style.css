@@ -10,7 +10,3 @@
     min-height: 5vh;
     border: 3px solid black;
 }
-
-.grid-item:hover, .grid-item.active {
-    background-color: rgb(236, 60, 157);
-}
