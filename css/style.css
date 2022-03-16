@@ -29,6 +29,15 @@ body {
     min-height: 500px;
 }
 
+/*#container {
+    display: inline-flex;
+    flex-wrap: wrap;
+    max-width: 500px;
+    min-width: 500px;
+    max-height: 500px;
+    min-height: 500px;
+}*/
+
 .grid-items {
     height: 100%;
     width: 100%;

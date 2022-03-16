@@ -5,7 +5,7 @@ function makeArt() {
     createGrid(16);
     generateColor();
     resetGrid();
-    //newGrid();
+    newGrid();
 }
 
 function createGrid(gridSize) {
@@ -34,7 +34,31 @@ function resetGrid() {
     const resetBtn = document.getElementById('reset');
     resetBtn.addEventListener('click', () => {
         window.location.reload();
+        newGrid();
     });    
+}
+
+function newGrid() {
+    const changeBtn = document.getElementById('change');
+    changeBtn.addEventListener('click', () =>{
+        let promptGridSize = prompt('What dimension would you like for your grid?');
+        let gridSize = parseInt(promptGridSize);
+        if (isNaN(gridSize)) {
+            window.alert('Please enter a valid number.');
+            return;
+        } else if (gridSize <= 0) {
+            window.alert('Please enter a positive integer.');
+            return;
+        } else if (gridSize > 63) {
+            window.alert('Please enter a number less than 64.');
+            return;
+        } else {
+            createGrid(gridSize);
+            generateColor();
+        }
+    });
+    const container = document.getElementById('container');
+    while (container.firstChild) container.removeChild(container.firstChild);
 }
 
 makeArt();
