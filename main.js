@@ -35,6 +35,7 @@ function createGrid(rows, cols) {
 createGrid(16, 16);*/
 
 const container = document.getElementById('container');
+//let gridSize = 24;
 
 function makeArt() {
     createGrid(16);
@@ -54,6 +55,22 @@ function createGrid(x) {
         };
     };
 }
+
+/*function createGrid() {
+    let gridWidth = container.offsetWidth / gridSize;
+    container.style.gridTemplateColumns = `repeat(${gridSize - 3}, ${gridWidth}px) 1fr 1fr 1fr`;
+    container.style.gridTemplateRows = `repeat(${gridSize - 3}, ${gridWidth}px) 1fr 1fr 1fr`;
+    if (gridSize < 4) {
+    container.style.gridTemplateColumns = `repeat(${gridSize},1fr`;
+    container.style.gridTemplateRows = `repeat(${gridSize}, 1fr`;
+    }
+
+    for (let i = 0; i < gridSize ** 2; i++) {
+    const cell = document.createElement('div');
+    square.className = 'grid-item';
+    cell.style.border = '1px solid black';
+    container.appendChild(square);
+}*/
 
 /*function hoverState() {
     const color = ['#ff2f8e', '#ff9e4c', '#ffd600', '#66df48', '#6a77dd', '#9803ce'];
@@ -104,8 +121,14 @@ function resetGrid() {
     //createGrid(gridSize);
 }*/
 
-function newGrid() {
-    
-}
+/*function rangeSlider(value) {
+    let sliderBar = document.getElementById('progress-bar');
+    let gridLabels = document.querySelectorAll('#range-value');
+    sliderBar.style.width = (value / 60) * 100 + '%';
+    for(let i = 0; i < gridLabels.length; i++) {
+        gridLabels[i].textContent = value;
+    };
+    gridSize = parseInt(value);
+}*/
 
 makeArt();
