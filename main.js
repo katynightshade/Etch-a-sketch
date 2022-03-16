@@ -1,3 +1,46 @@
+const container = document.getElementById('container');
+//let gridSize = 24;
+
+function makeArt() {
+    createGrid(16);
+    generateColor();
+    resetGrid();
+    //newGrid();
+}
+
+function createGrid(x) {
+    for (let rows = 0; rows < x; rows++) {
+        for (let columns = 0; columns < x; columns++) {
+            const cell = document.createElement('div');
+            cell.className = 'grid-item';
+            cell.style.border = '1px solid black';
+            container.appendChild(cell);
+        };
+    };
+}
+
+function generateColor() {
+    const color = ['#ff2f8e', '#ff9e4c', '#ffd600', '#66df48', '#6a77dd', '#9803ce', '#000000'];
+    const gridItem = document.querySelectorAll('.grid-item');
+    gridItem.forEach((item) => {
+        const randomColors = color[Math.floor(Math.random()*color.length)];
+        item.addEventListener('mouseover', (e) => {
+            e.target.style.backgroundColor = randomColors;
+        });
+    });
+}
+
+function resetGrid() {
+    const resetBtn = document.getElementById('reset');
+    resetBtn.addEventListener('click', () => {
+        window.location.reload();
+    });    
+}
+
+makeArt();
+
+//non-functional script
+
 /*const container = document.getElementById('container');
 
 function makeRows(rows, columns) {
@@ -34,28 +77,6 @@ function createGrid(rows, cols) {
 
 createGrid(16, 16);*/
 
-const container = document.getElementById('container');
-//let gridSize = 24;
-
-function makeArt() {
-    createGrid(16);
-    //hoverState();
-    generateColor();
-    resetGrid();
-    //newGrid();
-}
-
-function createGrid(x) {
-    for (let rows = 0; rows < x; rows++) {
-        for (let columns = 0; columns < x; columns++) {
-            const cell = document.createElement('div');
-            cell.className = 'grid-item';
-            cell.style.border = '1px solid black';
-            container.appendChild(cell);
-        };
-    };
-}
-
 /*function createGrid() {
     let gridWidth = container.offsetWidth / gridSize;
     container.style.gridTemplateColumns = `repeat(${gridSize - 3}, ${gridWidth}px) 1fr 1fr 1fr`;
@@ -79,24 +100,6 @@ function createGrid(x) {
         gridItem.style.background = Math.floor(Math.random() * color.length);
     });
 }*/
-
-function generateColor() {
-    const color = ['#ff2f8e', '#ff9e4c', '#ffd600', '#66df48', '#6a77dd', '#9803ce', '#000000'];
-    const gridItem = document.querySelectorAll('.grid-item');
-    gridItem.forEach((item) => {
-        const randomColors = color[Math.floor(Math.random()*color.length)];
-        item.addEventListener('mouseover', (e) => {
-            e.target.style.backgroundColor = randomColors;
-        });
-    });
-}
-
-function resetGrid() {
-    const resetBtn = document.getElementById('reset');
-    resetBtn.addEventListener('click', () => {
-        window.location.reload();
-    });    
-}
 
 /*function newGrid() {
     const changeBtn = document.getElementById('change');
@@ -130,5 +133,3 @@ function resetGrid() {
     };
     gridSize = parseInt(value);
 }*/
-
-makeArt();
