@@ -85,7 +85,7 @@ function resetGrid() {
     const changeBtn = document.getElementById('change');
     changeBtn.addEventListener('click', () =>{
         let promptGridSize = prompt('What dimension would you like for your grid?');
-        let gridSize = parseInt(promptGridSize, 10);
+        let gridSize = parseInt(promptGridSize);
         if (isNaN(gridSize)) {
             window.alert('Please enter a valid number.');
             return;
@@ -96,13 +96,16 @@ function resetGrid() {
             window.alert('Please enter a number less than 64.');
             return;
         } else {
-            createGrid(gridSize);
+            return createGrid(gridSize);
         }
     });
     const container = document.getElementById('container');
     while (container.firstChild) container.removeChild(container.firstChild);
-    createGrid(gridSize);
+    //createGrid(gridSize);
 }*/
 
+function newGrid() {
+    
+}
+
 makeArt();
-//newGrid();
