@@ -1,5 +1,5 @@
 const container = document.getElementById('container');
-//let gridSize = 24;
+let gridSize;
 
 function makeArt() {
     createGrid(16);
@@ -8,9 +8,9 @@ function makeArt() {
     //newGrid();
 }
 
-function createGrid(x) {
-    for (let rows = 0; rows < x; rows++) {
-        for (let columns = 0; columns < x; columns++) {
+function createGrid(gridSize) {
+    for (let rows = 0; rows < gridSize; rows++) {
+        for (let columns = 0; columns < gridSize; columns++) {
             const cell = document.createElement('div');
             cell.className = 'grid-item';
             cell.style.border = '1px solid black';
