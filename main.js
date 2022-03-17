@@ -1,3 +1,70 @@
+const container = document.getElementById('container');
+let gridSize;
+
+function makeArt() {
+    createGrid(16);
+    generateColor();
+    resetGrid();
+    newGrid();
+}
+
+function createGrid(gridSize) {
+    for (let rows = 0; rows < gridSize; rows++) {
+        for (let columns = 0; columns < gridSize; columns++) {
+            const cell = document.createElement('div');
+            cell.className = 'grid-item';
+            cell.style.border = '1px solid black';
+            container.appendChild(cell);
+        };
+    };
+}
+
+function generateColor() {
+    const color = ['#ff2f8e', '#ff9e4c', '#ffd600', '#66df48', '#6a77dd', '#9803ce', '#000000'];
+    const gridItem = document.querySelectorAll('.grid-item');
+    gridItem.forEach((item) => {
+        const randomColors = color[Math.floor(Math.random()*color.length)];
+        item.addEventListener('mouseover', (e) => {
+            e.target.style.backgroundColor = randomColors;
+        });
+    });
+}
+
+function resetGrid() {
+    const resetBtn = document.getElementById('reset');
+    resetBtn.addEventListener('click', () => {
+        window.location.reload();
+        newGrid();
+    });    
+}
+
+function newGrid() {
+    const changeBtn = document.getElementById('change');
+    changeBtn.addEventListener('click', () =>{
+        let promptGridSize = prompt('What dimension would you like for your grid?');
+        let gridSize = parseInt(promptGridSize);
+        if (isNaN(gridSize)) {
+            window.alert('Please enter a valid number.');
+            return;
+        } else if (gridSize <= 0) {
+            window.alert('Please enter a positive integer.');
+            return;
+        } else if (gridSize > 63) {
+            window.alert('Please enter a number less than 64.');
+            return;
+        } else {
+            createGrid(gridSize);
+            generateColor();
+        }
+    });
+    const container = document.getElementById('container');
+    while (container.firstChild) container.removeChild(container.firstChild);
+}
+
+makeArt();
+
+//non-functional script
+
 /*const container = document.getElementById('container');
 
 function makeRows(rows, columns) {
@@ -34,26 +101,21 @@ function createGrid(rows, cols) {
 
 createGrid(16, 16);*/
 
-const container = document.getElementById('container');
+/*function createGrid() {
+    let gridWidth = container.offsetWidth / gridSize;
+    container.style.gridTemplateColumns = `repeat(${gridSize - 3}, ${gridWidth}px) 1fr 1fr 1fr`;
+    container.style.gridTemplateRows = `repeat(${gridSize - 3}, ${gridWidth}px) 1fr 1fr 1fr`;
+    if (gridSize < 4) {
+    container.style.gridTemplateColumns = `repeat(${gridSize},1fr`;
+    container.style.gridTemplateRows = `repeat(${gridSize}, 1fr`;
+    }
 
-function makeArt() {
-    createGrid(16);
-    //hoverState();
-    generateColor();
-    resetGrid();
-    //newGrid();
-}
-
-function createGrid(x) {
-    for (let rows = 0; rows < x; rows++) {
-        for (let columns = 0; columns < x; columns++) {
-            const cell = document.createElement('div');
-            cell.className = 'grid-item';
-            cell.style.border = '1px solid black';
-            container.appendChild(cell);
-        };
-    };
-}
+    for (let i = 0; i < gridSize ** 2; i++) {
+    const cell = document.createElement('div');
+    square.className = 'grid-item';
+    cell.style.border = '1px solid black';
+    container.appendChild(square);
+}*/
 
 /*function hoverState() {
     const color = ['#ff2f8e', '#ff9e4c', '#ffd600', '#66df48', '#6a77dd', '#9803ce'];
@@ -63,29 +125,11 @@ function createGrid(x) {
     });
 }*/
 
-function generateColor() {
-    const color = ['#ff2f8e', '#ff9e4c', '#ffd600', '#66df48', '#6a77dd', '#9803ce', '#000000'];
-    const gridItem = document.querySelectorAll('.grid-item');
-    gridItem.forEach((item) => {
-        const randomColors = color[Math.floor(Math.random()*color.length)];
-        item.addEventListener('mouseover', (e) => {
-            e.target.style.backgroundColor = randomColors;
-        });
-    });
-}
-
-function resetGrid() {
-    const resetBtn = document.getElementById('reset');
-    resetBtn.addEventListener('click', () => {
-        window.location.reload();
-    });    
-}
-
 /*function newGrid() {
     const changeBtn = document.getElementById('change');
     changeBtn.addEventListener('click', () =>{
         let promptGridSize = prompt('What dimension would you like for your grid?');
-        let gridSize = parseInt(promptGridSize, 10);
+        let gridSize = parseInt(promptGridSize);
         if (isNaN(gridSize)) {
             window.alert('Please enter a valid number.');
             return;
@@ -96,13 +140,20 @@ function resetGrid() {
             window.alert('Please enter a number less than 64.');
             return;
         } else {
-            createGrid(gridSize);
+            return createGrid(gridSize);
         }
     });
     const container = document.getElementById('container');
     while (container.firstChild) container.removeChild(container.firstChild);
-    createGrid(gridSize);
+    //createGrid(gridSize);
 }*/
 
-makeArt();
-//newGrid();
+/*function rangeSlider(value) {
+    let sliderBar = document.getElementById('progress-bar');
+    let gridLabels = document.querySelectorAll('#range-value');
+    sliderBar.style.width = (value / 60) * 100 + '%';
+    for(let i = 0; i < gridLabels.length; i++) {
+        gridLabels[i].textContent = value;
+    };
+    gridSize = parseInt(value);
+}*/
