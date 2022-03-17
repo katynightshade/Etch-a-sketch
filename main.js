@@ -5,7 +5,7 @@ function makeArt() {
     createGrid(16);
     generateColor();
     resetGrid();
-    newGrid();
+    //newGrid();
 }
 
 function createGrid(gridSize) {
