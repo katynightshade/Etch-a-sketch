@@ -29,25 +29,25 @@ function generateColor() {
     });
 }
 
-function newGrid() {
+const changeBtn = document.getElementById('change');
+    
+changeBtn.addEventListener('click', function changeSize(gridSize) {
     container.innerHTML = '';
-    const changeBtn = document.getElementById('change');
-    changeBtn.addEventListener('click', function changeSize(gridSize) {
-        gridSize = prompt('What dimension would you like for your grid?');
-        if (isNaN(gridSize)) {
-            window.alert('Please enter a valid number.');
-            return;
-        } else if (gridSize <= 0) {
-            window.alert('Please enter a positive integer.');
-            return;
-        } else if (gridSize > 63) {
-            window.alert('Please enter a number less than 64.');
-            return;
-        } else {
-            createGrid(gridSize, gridSize);
-        }
-    });
-}
+    gridSize = prompt('What dimension would you like for your grid?');
+    if (isNaN(gridSize)) {
+        window.alert('Please enter a valid number.');
+        return;
+    } else if (gridSize <= 0) {
+        window.alert('Please enter a positive integer.');
+        return;
+    } else if (gridSize > 63) {
+        window.alert('Please enter a number less than 64.');
+        return;
+    } else {
+        createGrid(gridSize, gridSize);
+    }
+});
+
 
 createGrid(16, 16);
 //newGrid();
