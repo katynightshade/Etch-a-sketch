@@ -30,7 +30,7 @@ const changeBtn = document.getElementById('change');
     
 changeBtn.addEventListener('click', function changeSize(gridSize) {
     container.innerHTML = '';
-    gridSize = prompt('What dimension would you like for your grid?');
+    gridSize = prompt('What dimension would you like for your grid? Enter a number between 1 and 100.');
     if (isNaN(gridSize)) {
         window.alert('Please enter a valid number.');
         createGrid(16, 16);
