@@ -20,6 +20,7 @@ body {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    background-color: rgb(172, 85, 253);
 }
 
 /*grid-template seems to be the problem with changing the grid; not sure how to fix 3/16/22 13:30.*/
@@ -30,6 +31,7 @@ body {
     grid-template-columns: repeat(var(--grid-cols), 1fr);
     grid-template-rows: repeat(var(--grid-rows), 1fr);
     gap: 0vw;
+    background-color: white;
 }
 
 /*#container {
@@ -49,11 +51,10 @@ body {
 .buttons {
     display: flex;
     padding: 15px 50px;
-
 }
 
 #change {
-    background-color: black;
+    background-color: rgb(93, 165, 248);
     color: white;
     border-style: none;
     padding: 8px 12px;
