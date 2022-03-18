@@ -33,12 +33,15 @@ changeBtn.addEventListener('click', function changeSize(gridSize) {
     gridSize = prompt('What dimension would you like for your grid?');
     if (isNaN(gridSize)) {
         window.alert('Please enter a valid number.');
+        createGrid(16, 16);
         return;
     } else if (gridSize <= 0) {
         window.alert('Please enter a positive integer.');
+        createGrid(16, 16);
         return;
     } else if (gridSize > 99) {
         window.alert('Please enter a number less than 100.');
+        createGrid(16, 16);
         return;
     } else {
         createGrid(gridSize, gridSize);
