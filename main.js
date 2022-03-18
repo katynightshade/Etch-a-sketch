@@ -1,5 +1,10 @@
 const container = document.getElementById('container');
 
+function makeArt() {
+    createGrid(16, 16);
+    generateColor();
+}
+
 function createGrid(rows, cols) {
     container.style.setProperty("--grid-rows", rows);
     container.style.setProperty("--grid-cols", cols);
@@ -7,7 +12,6 @@ function createGrid(rows, cols) {
         const cell = document.createElement('div');
         cell.style.border = '1px solid black';
         container.appendChild(cell).className = 'grid-item';
-        cell.addEventListener('mouseover', generateColor());
     }
 }
 
@@ -33,13 +37,13 @@ changeBtn.addEventListener('click', function changeSize(gridSize) {
     } else if (gridSize <= 0) {
         window.alert('Please enter a positive integer.');
         return;
-    } else if (gridSize > 63) {
-        window.alert('Please enter a number less than 64.');
+    } else if (gridSize > 99) {
+        window.alert('Please enter a number less than 100.');
         return;
     } else {
         createGrid(gridSize, gridSize);
+        generateColor();
     }
 });
 
-
-createGrid(16, 16);
+makeArt();
