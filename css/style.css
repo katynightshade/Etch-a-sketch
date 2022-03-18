@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&display=swap');
+
 :root {
     --grid-cols: 1;
     --grid-rows: 1;
@@ -14,7 +16,7 @@ body {
 
 h1, h3 {
     color: azure;
-    font-family: fantasy;
+    font-family: 'Cormorant Garamond', sans-serif;
 }
 
 h1 {
@@ -52,7 +54,7 @@ img {
     padding: 8px 12px;
     border-radius: 50%;
     box-shadow: 0 0 10px #FFF, 0 0 10px #FFF;
-    font-family: fantasy;
+    font-family: 'Cormorant Garamond', sans-serif;
     font-size: 30px;
     font-weight: 500;
     cursor: pointer;
