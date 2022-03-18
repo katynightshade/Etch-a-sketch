@@ -10,6 +10,11 @@
     border: 3px solid black;
 }*/
 
+:root {
+    --grid-cols: 1;
+    --grid-rows: 1;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -20,13 +25,11 @@ body {
 /*grid-template seems to be the problem with changing the grid; not sure how to fix 3/16/22 13:30.*/
 #container {
     display: grid;
-    grid-template: repeat(16, minmax(0, 1fr)) / repeat(16, minmax(0, 1fr));
+    width: 600px;
+    height: 600px;
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
     gap: 0vw;
-    box-sizing: border-box;
-    max-width: 500px;
-    min-width: 500px;
-    max-height: 500px;
-    min-height: 500px;
 }
 
 /*#container {
@@ -46,10 +49,10 @@ body {
 .buttons {
     display: flex;
     padding: 15px 50px;
-    gap: 30px;
+
 }
 
-#reset, #change {
+#change {
     background-color: black;
     color: white;
     border-style: none;
@@ -58,4 +61,5 @@ body {
     font-family: fantasy;
     font-size: 30px;
     font-weight: 500;
+    cursor: pointer;
 }

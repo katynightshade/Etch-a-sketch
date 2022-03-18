@@ -1,21 +1,10 @@
 const container = document.getElementById('container');
 
-function makeArt() {
+/*function makeArt() {
     createGrid(16,16);
     //generateColor();
     //resetGrid();
     newGrid();
-}
-
-/*function createGrid(gridSize) {
-    for (let rows = 0; rows < gridSize; rows++) {
-        for (let columns = 0; columns < gridSize; columns++) {
-            const cell = document.createElement('div');
-            cell.className = 'grid-item';
-            cell.style.border = '1px solid black';
-            container.appendChild(cell);
-        };
-    };
 }*/
 
 function createGrid(rows, cols) {
@@ -40,13 +29,6 @@ function generateColor() {
     });
 }
 
-/*function resetGrid() {
-    const resetBtn = document.getElementById('reset');
-    resetBtn.addEventListener('click', () => {
-        container.innerHTML = createGrid(16, 16);
-    });    
-}*/
-
 function newGrid() {
     container.innerHTML = '';
     const changeBtn = document.getElementById('change');
@@ -67,7 +49,10 @@ function newGrid() {
     });
 }
 
-makeArt();
+createGrid(16, 16);
+//newGrid();
+
+//makeArt();
 
 //non-functional script
 
@@ -162,4 +147,22 @@ createGrid(16, 16);*/
         gridLabels[i].textContent = value;
     };
     gridSize = parseInt(value);
+}*/
+
+/*function createGrid(gridSize) {
+    for (let rows = 0; rows < gridSize; rows++) {
+        for (let columns = 0; columns < gridSize; columns++) {
+            const cell = document.createElement('div');
+            cell.className = 'grid-item';
+            cell.style.border = '1px solid black';
+            container.appendChild(cell);
+        };
+    };
+}*/
+
+/*function resetGrid() {
+    const resetBtn = document.getElementById('reset');
+    resetBtn.addEventListener('click', () => {
+        container.innerHTML = createGrid(16, 16);
+    });    
 }*/
