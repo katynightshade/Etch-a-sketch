@@ -5,6 +5,10 @@
     --grid-rows: 1;
 }
 
+html {
+    height: 100%;
+}
+
 body {
     display: flex;
     flex-direction: column;
