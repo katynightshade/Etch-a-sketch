@@ -1,14 +1,13 @@
 const container = document.getElementById('container');
-let gridSize;
 
 function makeArt() {
-    createGrid(16);
-    generateColor();
-    resetGrid();
-    //newGrid();
+    createGrid(16,16);
+    //generateColor();
+    //resetGrid();
+    newGrid();
 }
 
-function createGrid(gridSize) {
+/*function createGrid(gridSize) {
     for (let rows = 0; rows < gridSize; rows++) {
         for (let columns = 0; columns < gridSize; columns++) {
             const cell = document.createElement('div');
@@ -17,6 +16,17 @@ function createGrid(gridSize) {
             container.appendChild(cell);
         };
     };
+}*/
+
+function createGrid(rows, cols) {
+    container.style.setProperty("--grid-rows", rows);
+    container.style.setProperty("--grid-cols", cols);
+    for(let i = 0; i < (rows * cols); i++) {
+        const cell = document.createElement('div');
+        cell.style.border = '1px solid black';
+        container.appendChild(cell).className = 'grid-item';
+        cell.addEventListener('mouseover', generateColor());
+    }
 }
 
 function generateColor() {
@@ -30,19 +40,18 @@ function generateColor() {
     });
 }
 
-function resetGrid() {
+/*function resetGrid() {
     const resetBtn = document.getElementById('reset');
     resetBtn.addEventListener('click', () => {
-        window.location.reload();
-        newGrid();
+        container.innerHTML = createGrid(16, 16);
     });    
-}
+}*/
 
 function newGrid() {
+    container.innerHTML = '';
     const changeBtn = document.getElementById('change');
-    changeBtn.addEventListener('click', () =>{
-        let promptGridSize = prompt('What dimension would you like for your grid?');
-        let gridSize = parseInt(promptGridSize);
+    changeBtn.addEventListener('click', function changeSize(gridSize) {
+        gridSize = prompt('What dimension would you like for your grid?');
         if (isNaN(gridSize)) {
             window.alert('Please enter a valid number.');
             return;
@@ -53,12 +62,9 @@ function newGrid() {
             window.alert('Please enter a number less than 64.');
             return;
         } else {
-            createGrid(gridSize);
-            generateColor();
+            createGrid(gridSize, gridSize);
         }
     });
-    const container = document.getElementById('container');
-    while (container.firstChild) container.removeChild(container.firstChild);
 }
 
 makeArt();
