@@ -27,11 +27,17 @@ const changeBtn = document.getElementById('change');
 changeBtn.addEventListener('click', function changeSize(gridSize) {
     container.innerHTML = '';
     gridSize = prompt('What dimension would you like for your grid?');
-    if (gridSize > 0 && gridSize <= 100) {
-        createGrid(gridSize, gridSize);
+    if (isNaN(gridSize)) {
+        window.alert('Please enter a valid number.');
+        return;
+    } else if (gridSize <= 0) {
+        window.alert('Please enter a positive integer.');
+        return;
+    } else if (gridSize > 63) {
+        window.alert('Please enter a number less than 64.');
+        return;
     } else {
-        createGrid(16, 16);
-        alert('Please enter a number between 1 and 100.');
+        createGrid(gridSize, gridSize);
     }
 });
 
